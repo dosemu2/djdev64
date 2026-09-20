@@ -1,8 +1,8 @@
-TOP = ../../..
+TOP = ../..
 include $(TOP)/Makefile.conf
 SOURCES = coff.c elf.c util.c stub.c dpmiwrp.c dos.c
 OBJECTS = $(SOURCES:.c=.o)
-CFLAGS += -iquote $(srcdir)/../include -fpic -ggdb3 -Wall -Og -MD
+CFLAGS += -iquote $(abs_top_srcdir)/include -fpic -ggdb3 -Wall -Og -MD
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
