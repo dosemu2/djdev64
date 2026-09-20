@@ -1,0 +1,74 @@
+#
+# spec file for package dj64dev
+#
+
+Name: djdev64
+Version: {{{ git_dir_version }}}
+Release: 1%{?dist}
+Summary: 64-bit djgpp-compatible dev suite
+
+Group: Development/Libraries
+
+License: GPLv3+
+URL: https://github.com/dosemu2/djdev64
+VCS: {{{ git_dir_vcs }}}
+Source0: {{{ git_dir_archive }}}
+
+BuildRequires: make
+BuildRequires: gcc
+BuildRequires: binutils
+BuildRequires: elfutils-libelf-devel
+BuildRequires: pkgconf-pkg-config
+
+%description
+SDK for working with dj64-based executables
+%end
+
+%prep
+{{{ git_dir_setup_macro }}}
+%end
+
+%build
+make %{?_smp_mflags}
+%end
+
+%check
+%end
+
+%install
+make prefix=%{_prefix} libdir=%{_libdir} DESTDIR=%{buildroot} install
+%end
+
+
+%package djdev64
+Summary: djdev64 runtime libraries
+
+%description djdev64
+This package contains runtime libraries for djdev64-enabled DPMI host.
+%end
+
+%files djdev64
+%defattr(-,root,root)
+%{_libdir}/*.so.*
+%end
+
+%package djdev64-devel
+Summary: djdev64 development libraries and headers
+Requires: dj64dev-djdev64 = {{{ git_dir_version }}}
+
+%description djdev64-devel
+This package contains development libraries and headers for
+djdev64-enabled DPMI host.
+%end
+
+%files djdev64-devel
+%defattr(-,root,root)
+%{_includedir}/djdev64
+%{_libdir}/*.so
+%{_libdir}/pkgconfig/djdev64.pc
+%{_libdir}/pkgconfig/djstub64.pc
+%end
+
+%changelog
+{{{ git_dir_changelog }}}
+%end

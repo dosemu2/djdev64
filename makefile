@@ -52,3 +52,10 @@ uninstall:
 	$(RM) $(DESTDIR)$(libdir)/$(notdir $(DJSTUB64LIBV))
 	$(RM) $(DESTDIR)$(libdir)/$(notdir $(DJSTUB64LIB))
 	ldconfig
+
+deb:
+	debuild -i -us -uc -b
+
+rpm:
+	$(MAKE) clean
+	rpkg local && $(MAKE) clean >/dev/null

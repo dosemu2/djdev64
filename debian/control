@@ -1,0 +1,37 @@
+Source: djdev64
+Section: devel
+Priority: optional
+Maintainer: Stas Sergeev <stsp@users.sourceforge.net>
+Standards-Version: 3.9.7
+Build-Depends:
+    pkgconf,
+    libelf-dev,
+    debhelper (>= 9~)
+Homepage: https://github.com/dosemu2/djdev64
+Description: SDK for working with dj64-based executables
+ djdev64 is a set of headers and libraries to deal with
+ 64-based executables.
+
+Package: libdjdev64-0
+Replaces: djdev64
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: djdev64 runtime libraries
+ This package contains runtime libraries for djdev64-enabled DPMI host.
+
+Package: libdjstub64-0
+Replaces: djdev64
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: djdev64 runtime libraries
+ This package contains runtime libraries for djdev64-enabled DPMI host.
+
+Package: djdev64-dev
+Architecture: any
+Section: libdevel
+Depends: libdjdev64-0 (= ${binary:Version}),
+    libdjstub64-0 (= ${binary:Version}),
+    ${misc:Depends}
+Description: djdev64 development libraries and headers
+ This package contains development libraries and headers for
+ djdev64-enabled DPMI host.
