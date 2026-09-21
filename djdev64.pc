@@ -1,4 +1,0 @@
-Name: djdev64
-Description: djdev64 suit
-Version: 0.5
-Libs: -ldjdev64

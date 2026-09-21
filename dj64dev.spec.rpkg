@@ -14,7 +14,8 @@ URL: https://github.com/dosemu2/djdev64
 VCS: {{{ git_dir_vcs }}}
 Source0: {{{ git_dir_archive }}}
 
-BuildRequires: make
+BuildRequires: meson >= 0.56
+BuildRequires: ninja-build
 BuildRequires: gcc
 BuildRequires: binutils
 BuildRequires: elfutils-libelf-devel
@@ -29,14 +30,15 @@ SDK for working with dj64-based executables
 %end
 
 %build
-make %{?_smp_mflags}
+%meson
+%meson_build
 %end
 
 %check
 %end
 
 %install
-make prefix=%{_prefix} libdir=%{_libdir} DESTDIR=%{buildroot} install
+%meson_install
 %end
 
 
