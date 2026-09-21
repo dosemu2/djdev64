@@ -51,7 +51,7 @@ int djdev64_exec(const char *path, int handle, int libid, unsigned flags)
     int err;
 
     eh->dlobj = NULL;
-#if HAVE_DECL_RTLD_DEEPBIND
+#ifdef RTLD_DEEPBIND
     rtld_flags |= RTLD_DEEPBIND;
 #endif
     eh->dlobj = dlopen(path, rtld_flags);

@@ -256,7 +256,7 @@ static int _djdev64_open(const char *path, const struct dj64_api *api,
 #define VERSIONING 0
 #endif
 
-#if VERSIONING || HAVE_DECL_RTLD_DEEPBIND
+#if VERSIONING || defined(RTLD_DEEPBIND)
 #define WANT_DLMOPEN 0
 #else
 #define WANT_DLMOPEN 1
@@ -268,7 +268,7 @@ static int _djdev64_open(const char *path, const struct dj64_api *api,
         dlh = dlmopen(LM_ID_NEWLM, path, RTLD_LOCAL | RTLD_NOW);
 #else
         fprintf(stderr, "dlmopen() not supported, use static linking\n");
-#if HAVE_DECL_RTLD_DEEPBIND
+#ifdef RTLD_DEEPBIND
         dlh = emu_dlmopen(handles, path, RTLD_LOCAL | RTLD_NOW | RTLD_DEEPBIND,
                 &path2);
 #endif
@@ -278,7 +278,7 @@ static int _djdev64_open(const char *path, const struct dj64_api *api,
          * because libc is loaded before us. But for safety lets use
          * RTLD_LOCAL. */
         int rtld_flags = RTLD_LOCAL | RTLD_NOW;
-#if HAVE_DECL_RTLD_DEEPBIND
+#ifdef RTLD_DEEPBIND
         rtld_flags |= RTLD_DEEPBIND;
 #else
         /*
