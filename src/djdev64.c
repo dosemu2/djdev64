@@ -17,6 +17,7 @@
  */
 
 #define _GNU_SOURCE
+#include "config.h"
 #include <dlfcn.h>
 #ifdef __sun__
 #include <link.h>
