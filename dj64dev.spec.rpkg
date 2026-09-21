@@ -40,28 +40,21 @@ make prefix=%{_prefix} libdir=%{_libdir} DESTDIR=%{buildroot} install
 %end
 
 
-%package djdev64
-Summary: djdev64 runtime libraries
-
-%description djdev64
-This package contains runtime libraries for djdev64-enabled DPMI host.
-%end
-
-%files djdev64
+%files
 %defattr(-,root,root)
 %{_libdir}/*.so.*
 %end
 
-%package djdev64-devel
+%package devel
 Summary: djdev64 development libraries and headers
-Requires: dj64dev-djdev64 = {{{ git_dir_version }}}
+Requires: djdev64 = {{{ git_dir_version }}}
 
-%description djdev64-devel
+%description devel
 This package contains development libraries and headers for
 djdev64-enabled DPMI host.
 %end
 
-%files djdev64-devel
+%files devel
 %defattr(-,root,root)
 %{_includedir}/djdev64
 %{_libdir}/*.so
