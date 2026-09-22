@@ -123,13 +123,13 @@ inc_pub = include_directories('include')
 
 subdir('src')
 
-pkgconfig.generate(libdjdev64,
+pkgconfig.generate(
   name : 'djdev64',
   description : 'djdev64 suit',
   version : djdev64_pc_version,
 )
 
-pkgconfig.generate(libdjstub64,
+pkgconfig.generate(
   name : 'djstub64',
   description : 'djstub64 libs',
   version : djstub64_pc_version,
