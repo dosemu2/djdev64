@@ -4,7 +4,6 @@
 project('djdev64', 'c',
   version : '0.5',
   license : 'GPL-3.0-or-later',
-  meson_version : '>= 0.56.0',
   default_options : [
     'c_std=gnu11',
     'warning_level=1',

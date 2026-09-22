@@ -6,9 +6,9 @@ Standards-Version: 3.9.7
 Build-Depends:
     pkgconf,
     libelf-dev,
-    meson (>= 0.56),
+    meson,
     ninja-build,
-    debhelper-compat (= 13)
+    debhelper-compat (= 12)
 Homepage: https://github.com/dosemu2/djdev64
 Description: SDK for working with dj64-based executables
  djdev64 is a set of headers and libraries to deal with
