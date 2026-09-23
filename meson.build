@@ -123,21 +123,16 @@ inc_pub = include_directories('include')
 
 subdir('src')
 
-pkgconfig.generate(
+pkgconfig.generate(libdjdev64,
   name : 'djdev64',
   description : 'djdev64 suit',
   version : djdev64_pc_version,
-  filebase : 'djdev64',
-  subdirs : 'djdev64',
-  libraries : ['-L${libdir}', '-ldjdev64'],
 )
 
-pkgconfig.generate(
+pkgconfig.generate(libdjstub64,
   name : 'djstub64',
   description : 'djstub64 libs',
   version : djstub64_pc_version,
-  filebase : 'djstub64',
-  libraries : ['-L${libdir}', '-ldjstub64'],
 )
 
 install_headers(

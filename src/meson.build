@@ -8,7 +8,7 @@ djdev64_sources = files(
 
 djdev64_c_args = cc.get_supported_arguments('-Wmissing-prototypes')
 
-libdjdev64 = library('djdev64',
+libdjdev64 = shared_library('djdev64',
   djdev64_sources, config_h,
   include_directories : [inc_root, inc_pub],
   c_args : djdev64_c_args,

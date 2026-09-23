@@ -25,7 +25,7 @@ else
           'libdjstub64 symbols will not be versioned')
 endif
 
-libdjstub64 = library('djstub64',
+libdjstub64 = shared_library('djstub64',
   djstub64_sources,
   include_directories : [inc_root, inc_pub],
   link_args : djstub64_link_args,
